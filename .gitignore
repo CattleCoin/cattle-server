@@ -1,0 +1,16 @@
+node_modules
+apidoc
+.vscode
+.idea
+.editorconfig
+build/*
+resources/origin/*
+!resources/origin/.gitkeep
+
+resources/thumb/*
+!resources/thumb/.gitkeep
+
+apidoc
+package-lock.json
+
+config.js
