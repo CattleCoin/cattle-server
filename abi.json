@@ -52,7 +52,7 @@
 				"components": [
 					{
 						"internalType": "address",
-						"name": "ad",
+						"name": "owner",
 						"type": "address"
 					},
 					{
@@ -77,7 +77,7 @@
 					}
 				],
 				"indexed": false,
-				"internalType": "struct Husky.BetRecord",
+				"internalType": "struct TortoiseCoin.BetRecord",
 				"name": "",
 				"type": "tuple"
 			}
@@ -106,7 +106,7 @@
 						"type": "string"
 					},
 					{
-						"internalType": "enum Husky.GameType",
+						"internalType": "enum TortoiseCoin.GameType",
 						"name": "gameType",
 						"type": "uint8"
 					},
@@ -121,13 +121,13 @@
 						"type": "uint256"
 					},
 					{
-						"internalType": "enum Husky.GameStatus",
+						"internalType": "enum TortoiseCoin.GameStatus",
 						"name": "status",
 						"type": "uint8"
 					}
 				],
 				"indexed": false,
-				"internalType": "struct Husky.Game",
+				"internalType": "struct TortoiseCoin.Game",
 				"name": "",
 				"type": "tuple"
 			}
@@ -167,13 +167,38 @@
 			{
 				"components": [
 					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct TortoiseCoin.PledgeRecord",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"name": "Pledge",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"components": [
+					{
 						"internalType": "uint256",
 						"name": "gameId",
 						"type": "uint256"
 					},
 					{
 						"internalType": "address",
-						"name": "ad",
+						"name": "owner",
 						"type": "address"
 					},
 					{
@@ -192,7 +217,7 @@
 						"type": "uint256"
 					},
 					{
-						"internalType": "enum Husky.GameType",
+						"internalType": "enum TortoiseCoin.GameType",
 						"name": "gameType",
 						"type": "uint8"
 					},
@@ -200,15 +225,80 @@
 						"internalType": "uint256",
 						"name": "point",
 						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "bankerPoint",
+						"type": "uint256"
 					}
 				],
 				"indexed": false,
-				"internalType": "struct Husky.PrizeResult",
+				"internalType": "struct TortoiseCoin.PrizeRecord",
 				"name": "",
 				"type": "tuple"
 			}
 		],
 		"name": "Prize",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "fee",
+						"type": "uint256"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct TortoiseCoin.RedeemRecord",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"name": "Redeem",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "coinAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct TortoiseCoin.SwapRecord",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"name": "Swap",
 		"type": "event"
 	},
 	{
@@ -321,13 +411,7 @@
 			}
 		],
 		"name": "betting",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
+		"outputs": [],
 		"stateMutability": "payable",
 		"type": "function"
 	},
@@ -525,7 +609,7 @@
 						"type": "string"
 					},
 					{
-						"internalType": "enum Husky.GameType",
+						"internalType": "enum TortoiseCoin.GameType",
 						"name": "gameType",
 						"type": "uint8"
 					},
@@ -540,12 +624,12 @@
 						"type": "uint256"
 					},
 					{
-						"internalType": "enum Husky.GameStatus",
+						"internalType": "enum TortoiseCoin.GameStatus",
 						"name": "status",
 						"type": "uint8"
 					}
 				],
-				"internalType": "struct Husky.Game",
+				"internalType": "struct TortoiseCoin.Game",
 				"name": "",
 				"type": "tuple"
 			}
@@ -567,7 +651,7 @@
 				"components": [
 					{
 						"internalType": "address",
-						"name": "ad",
+						"name": "owner",
 						"type": "address"
 					},
 					{
@@ -591,7 +675,7 @@
 						"type": "bool"
 					}
 				],
-				"internalType": "struct Husky.BetRecord[]",
+				"internalType": "struct TortoiseCoin.BetRecord[]",
 				"name": "",
 				"type": "tuple[]"
 			}
@@ -710,26 +794,14 @@
 	{
 		"inputs": [],
 		"name": "pledge",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
+		"outputs": [],
 		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
 		"inputs": [],
 		"name": "redeem",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
+		"outputs": [],
 		"stateMutability": "payable",
 		"type": "function"
 	},
@@ -781,13 +853,7 @@
 			}
 		],
 		"name": "swap",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
+		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
